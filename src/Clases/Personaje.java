@@ -1,3 +1,5 @@
+package Clases;
+
 public class Personaje{
     private String nombre;
     private int vida;
@@ -27,6 +29,14 @@ public class Personaje{
     public void setVida(int vida){
         this.vida = vida;
     }
+
+    public void recibirDano(int dano) {
+        if (dano < 0) {
+            throw new IllegalArgumentException("El daño no puede ser negativo");
+        }
+        vida = Math.max(0, vida - dano);
+    }
+
     public int getAtaque(){
         return ataque;
     }
