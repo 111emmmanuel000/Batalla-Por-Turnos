@@ -6,6 +6,7 @@ public class Personaje{
     private int ataque;
     private int defensa;
     private int velocidad;
+    private int monedas = 10;
 
     //creamos el metodo constructor.
     public Personaje (String nombre, int vida, int ataque, int defensa, int velocidad){
@@ -56,5 +57,11 @@ public class Personaje{
     public void setVelocidad(int velocidad){
         this.velocidad = velocidad;
     }
-
+    
+    public int getMonedas(){
+        return monedas;
+    }
+    public void setMonedas(int monedas){
+        this.monedas = monedas;
+    }
 }
