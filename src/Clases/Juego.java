@@ -33,6 +33,9 @@ public class Juego {
 
     private void iniciarPartidda() throws IOException{
         Arbol mapa = new Arbol();
+        Jugador jugador = Jugador.crearJugador(br);
+        if(jugador == null) return;
+        System.out.println(jugador.getNombre() + " entra a la mazmorra con: " + jugador.getElementoPrincipal());
         Nodo salaActual = mapa.getRaiz();
 
         while(true){
