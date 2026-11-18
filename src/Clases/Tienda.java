@@ -35,7 +35,7 @@ public class Tienda {
                     " cuesta " + nodo.mejora.costo;
         }
 
-        jugador.setMonedas(getMonedas() - nodo.mejora.costo);
+        jugador.setMonedas(jugador.getMonedas() - nodo.mejora.costo);
         nodo.mejora.aplicar(jugador);
         nodo.comprada = true;
 

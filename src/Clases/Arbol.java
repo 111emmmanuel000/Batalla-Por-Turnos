@@ -2,10 +2,11 @@ package Clases;
 
 public class Arbol{
     private Nodo raiz;
+
     public Arbol(){
-        raiz = new Nodo(new Sala("Entrada",""));
-        Nodo puertaA = new Nodo(new Sala("Puerta izquierda", ""));
-        Nodo puertaB = new Nodo(new Sala("puerta derecha",""));
+        raiz = new Nodo(new Sala("Entrada","Frente a ti hay dos caminos posibles..."));
+        Nodo puertaA = new Nodo(new Sala("El Bosque", ""));
+        Nodo puertaB = new Nodo(new Sala("La Caverna",""));
         raiz.setIzquierda(puertaA);
         raiz.setDerecha(puertaB);
         Nodo puertaAa = new Nodo(new Sala("Puerta izquierda lado A", ""));
