@@ -9,12 +9,13 @@ public class Personaje{
     private int monedas = 10;
 
     //creamos el metodo constructor.
-    public Personaje (String nombre, int vida, int ataque, int defensa, int velocidad){
+    public Personaje (String nombre, int vida, int ataque, int defensa, int velocidad, int monedas){
         this.nombre = nombre;
         this.vida = vida;
         this.ataque = ataque;
         this.defensa = defensa;
         this.velocidad = velocidad;
+        this.monedas = monedas;
     }
 
     //Creamos los Getters y Setters para cada atributo.
@@ -22,7 +23,7 @@ public class Personaje{
         return nombre;
     }
     public void setNombre(String nombre){
-        if(nombre == ""){
+        if(nombre.equals("")){
             throw new IllegalArgumentException("Ingrese un nombre para el personaje.");
         }
         this.nombre = nombre;
@@ -81,5 +82,18 @@ public class Personaje{
             throw new IllegalArgumentException("la cantidad de monedas debe ser positiva");
         }
         this.monedas = monedas;
+    }
+    public void agregarMonedas(int cantidad){
+        if(cantidad<=0){
+            throw new IllegalArgumentException("La cantidad debe ser positiva");
+        }
+        monedas += cantidad;
+    }
+    public boolean gastarMonedas(int cantidad){
+        if(cantidad <= 0 || cantidad > monedas){
+            return false;
+        }
+        monedas -= cantidad;
+        return true;
     }
 }
