@@ -22,12 +22,18 @@ public class Personaje{
         return nombre;
     }
     public void setNombre(String nombre){
+        if(nombre == ""){
+            throw new IllegalArgumentException("Ingrese un nombre para el personaje.");
+        }
         this.nombre = nombre;
     }
     public int getVida(){
         return vida;
     }
     public void setVida(int vida){
+        if(vida < 0){
+            throw new IllegalArgumentException("La vida no puede ser negativa");
+        }
         this.vida = vida;
     }
 
@@ -42,6 +48,9 @@ public class Personaje{
         return ataque;
     }
     public void setAtaque(int ataque){
+        if(ataque <= 0){
+            throw new IllegalArgumentException("El ataque debe ser positivo");
+        }
         this.ataque = ataque;
     }
 
@@ -49,12 +58,18 @@ public class Personaje{
         return defensa;
     }
     public void setDefensa(int defensa){
+        if(defensa <= 0){
+            throw new IllegalArgumentException("El valor de la defensa no puede ser igual a 0");
+        }
         this.defensa = defensa;
     }
     public int getVelocidad(){
         return velocidad;
     }
     public void setVelocidad(int velocidad){
+        if(velocidad <= 0){
+            throw new IllegalArgumentException("La velocidad debe positiva");
+        }
         this.velocidad = velocidad;
     }
     
@@ -62,6 +77,9 @@ public class Personaje{
         return monedas;
     }
     public void setMonedas(int monedas){
+        if(monedas <=0){
+            throw new IllegalArgumentException("la cantidad de monedas debe ser positiva");
+        }
         this.monedas = monedas;
     }
 }
