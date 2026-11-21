@@ -33,7 +33,7 @@ public class Jugador extends Personaje{
         String verde = "\033[32m";
 
         System.out.println("---------------------------------");
-        System.out.println("\nElige tu elemento principal: ");
+        System.out.println("\nElige tu elemento principal: \n");
         System.out.println(rojo + "    1. Fuego" + reset);
         System.out.println(azul + "    2. Agua" + reset);
         System.out.println(verde + "    3. Tierra" + reset);

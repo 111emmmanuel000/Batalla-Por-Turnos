@@ -61,7 +61,7 @@ public class Juego {
                 if(izquierda != null) System.out.println("1. ir hacia  " + izquierda.getDato().getNombre());
                 if(derecha != null) System.out.println("2. ir hacia " + derecha.getDato().getNombre());
                 if(salaActual.getPadre() != null){System.out.println("3. volver a "+ salaActual.getPadre().getDato().getNombre());}
-                System.out.println(rojo + "\n0. Salir del juego " + reset);
+                System.out.println(rojo + "0. Salir del juego\n" + reset);
                 System.out.println("Elige una opcion: ");
 
                 String opcion = br.readLine();
