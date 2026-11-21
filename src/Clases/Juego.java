@@ -10,7 +10,7 @@ public class Juego {
 
         String op;
         do{
-            System.out.println("---Menu---");
+            System.out.println("\n------------ M E N U ------------\n");
             System.out.println("1. Iniciar partida");
             System.out.println("2. Historial de partidas");
             System.out.println("0. Salir");
@@ -32,28 +32,36 @@ public class Juego {
     }
 
     private void iniciarPartidda() throws IOException{
+
+        String italic = "\033[1;3m";
+        String reset = "\033[0m";
+        String rojo = "\033[31m";
+        String azul = "\033[34m";
+        String gris = "\033[37m";
+        String verde = "\033[32m";
+
         Arbol mapa = new Arbol();
         Jugador jugador = Jugador.crearJugador(br);
         if(jugador == null) return;
-        System.out.println(jugador.getNombre() + " entra a la mazmorra con: " + jugador.getElementoPrincipal());
-        Nodo salaActual = mapa.getRaiz();
+        System.out.println(jugador.getNombre() + " entra a la mazmorra con el elemento de " + jugador.getElementoPrincipal());
+        NodoA salaActual = mapa.getRaiz();
 
         while(true){
-            String italic = "\033[1;3m";
-            String reset = "\033[0m";
+
             Sala sala = salaActual.getDato();
             System.out.println("-------------------------------------");
             System.out.println("            Estas en: \n" + "            " + italic + sala.getNombre() + reset) ;
             System.out.println("'" +sala.getDescripcion()+"'\n");
 
-            Nodo izquierda = salaActual.getIzquierda();
-            Nodo derecha = salaActual.getDerecha();
+            NodoA izquierda = salaActual.getIzquierda();
+            NodoA derecha = salaActual.getDerecha();
 
-            Nodo siguiente = null;
+            NodoA siguiente = null;
             do{
-                if(izquierda != null) System.out.println("1. ir a:  " + izquierda.getDato().getNombre());
-                if(derecha != null) System.out.println("2. ir a: " + derecha.getDato().getNombre());
-                System.out.println("0.volver al menu");
+                if(izquierda != null) System.out.println("1. ir hacia  " + izquierda.getDato().getNombre());
+                if(derecha != null) System.out.println("2. ir hacia " + derecha.getDato().getNombre());
+                if(salaActual.getPadre() != null){System.out.println("3. volver a "+ salaActual.getPadre().getDato().getNombre());}
+                System.out.println(rojo + "\n0. Salir del juego " + reset);
                 System.out.println("Elige una opcion: ");
 
                 String opcion = br.readLine();
@@ -66,12 +74,16 @@ public class Juego {
                     case "2":
                         siguiente = derecha;
                         break;
+                    case "3":
+                        siguiente = salaActual.getPadre();
+                        break;
                     case "0":
                         return;
 
                 }
                 if(siguiente == null){
-                    System.out.println("Elige una de las puertas disponibles");
+                    System.out.println("-------------------------------------");
+                    System.out.println("Elige una de las salas disponibles\n");
                 }
             }while(siguiente == null);
             salaActual = siguiente;

@@ -17,6 +17,7 @@ public class Jugador extends Personaje{
 
         String nombre;
         do{
+            System.out.println("---------------------------------");
             System.out.println("Como se llama tu personaje?");
             nombre = br.readLine();
             if(nombre == null) return null;
@@ -25,14 +26,21 @@ public class Jugador extends Personaje{
                 System.out.println("Escribe un nombre para continuar");
             }
         }while(nombre.isEmpty());
+        String reset = "\033[0m";
+        String rojo = "\033[31m";
+        String azul = "\033[34m";
+        String gris = "\033[37m";
+        String verde = "\033[32m";
+
+        System.out.println("---------------------------------");
         System.out.println("\nElige tu elemento principal: ");
-        System.out.println("1. Fuego");
-        System.out.println("2. Agua");
-        System.out.println("3. Tierra");
-        System.out.println("4. Aire");
+        System.out.println(rojo + "    1. Fuego" + reset);
+        System.out.println(azul + "    2. Agua" + reset);
+        System.out.println(verde + "    3. Tierra" + reset);
+        System.out.println(gris +  "    4. Aire" + reset);
 
         while (true) {
-            System.out.print("Tu elección: ");
+            System.out.print("\nTu elección: \n");
             String opcion = br.readLine();
             if (opcion == null) return null;
 

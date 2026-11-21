@@ -3,6 +3,7 @@ package Clases;
 public class Sala {
     private String nombre;
     private String descripcion;
+    //private Enemigo enemigo;
 
     public Sala(String nombre, String descripcion){
         this.nombre = nombre;

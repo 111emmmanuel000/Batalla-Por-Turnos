@@ -1,24 +1,29 @@
 package Clases;
 
 public class Arbol{
-    private Nodo raiz;
-
+    private NodoA raiz;
+    String reset = "\033[0m";
+    String rojo = "\033[31m";
+    String azul = "\033[34m";
+    String gris = "\033[37m";
+    String verde = "\033[32m";
+    String amarillo = "\033[33m";
     public Arbol(){
-        raiz = new Nodo(new Sala("Entrada","Frente a ti hay dos caminos posibles..."));
-        Nodo puertaA = new Nodo(new Sala("El Bosque", ""));
-        Nodo puertaB = new Nodo(new Sala("La Caverna",""));
+        raiz = new NodoA(new Sala("Entrada","Frente a ti hay dos caminos posibles..."));
+        NodoA puertaA = new NodoA(new Sala(verde + "El Bosque" + reset, ""));
+        NodoA puertaB = new NodoA(new Sala(amarillo + "La Caverna"+ reset ,""));
         raiz.setIzquierda(puertaA);
         raiz.setDerecha(puertaB);
-        Nodo puertaAa = new Nodo(new Sala("Puerta izquierda lado A", ""));
-        Nodo puertaAb = new Nodo(new Sala("Puerta derecha lado A", ""));
+        NodoA puertaAa = new NodoA(new Sala(azul + "El Lago" + reset, ""));
+        NodoA puertaAb = new NodoA(new Sala(gris + "Bosque Alto"+ reset, ""));
         puertaA.setIzquierda(puertaAa);
         puertaA.setDerecha(puertaAb);
-        Nodo puertaBa = new Nodo(new Sala("Puerda izquierda lado B", ""));
-        Nodo puertaBb = new Nodo(new Sala("Puerda derecha lado B", ""));
+        NodoA puertaBa = new NodoA(new Sala(rojo + "Ruinas Volcanicas"+ reset, ""));
+        NodoA puertaBb = new NodoA(new Sala("Puerda derecha lado B", ""));
         puertaB.setIzquierda(puertaBa);
         puertaB.setDerecha(puertaBb);
 
     }
 
-    public Nodo getRaiz(){return raiz;}
+    public NodoA getRaiz(){return raiz;}
 }
