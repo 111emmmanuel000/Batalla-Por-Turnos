@@ -10,6 +10,7 @@ public class Combate {
 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     Jugador jugador;
+    boolean victoria;
 
     public Combate(Jugador jugador){
         this.jugador = jugador;
@@ -57,7 +58,7 @@ public class Combate {
             turnos.poll();
             turnos.offer(turnoActual);
 
-        }
+        } victoria = true;
     }
 
 }

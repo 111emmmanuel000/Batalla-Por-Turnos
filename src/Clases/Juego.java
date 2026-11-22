@@ -45,6 +45,7 @@ public class Juego {
         Arbol mapa = new Arbol();
         Jugador jugador = Jugador.crearJugador(br);
         Combate combate = new Combate(jugador);
+        Tienda tienda = new Tienda();
 
         if(jugador == null) return;
         System.out.println(jugador.getNombre() + " entra a la mazmorra con el elemento de " + jugador.getElementoPrincipal());
@@ -71,6 +72,7 @@ public class Juego {
                 if(izquierda != null)  System.out.println("\n1. ir hacia  " + izquierda.getDato().getNombre());
                 if(derecha != null) System.out.println("2. ir hacia " + derecha.getDato().getNombre());
                 if(salaActual.getPadre() != null){System.out.println("3. volver a "+ salaActual.getPadre().getDato().getNombre());}
+                System.out.println("4. Tienda");
                 System.out.println(rojo + "0. Salir del juego\n" + reset);
                 System.out.println("Elige una opcion: ");
 
@@ -81,16 +83,23 @@ public class Juego {
                     case "1":
                         siguiente = izquierda;
                         if(izquierda.getDato().isEnemigo()) combate.combate();
+                        if(combate.victoria == true) {
+                            izquierda.getDato().enemigoDerrotado();
+                        }
                         break;
                     case "2":
                         siguiente = derecha;
                         if(derecha.getDato().isEnemigo()) combate.combate();
+                        if(combate.victoria == true) {
+                            derecha.getDato().enemigoDerrotado();
+                        }
                         break;
                     case "3":
                         siguiente = salaActual.getPadre();
                         break;
-                    /*case "4":
-                        break;*/
+                    case "4":
+                        tienda.mostrar();
+                        break;
                     case "0":
                         return;
 

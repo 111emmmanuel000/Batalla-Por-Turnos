@@ -16,4 +16,6 @@ public class Sala {
     public String getDescripcion() {return descripcion;}
 
     public boolean isEnemigo() {return enemigo;}
+
+    public void enemigoDerrotado(){enemigo = false;}
 }
