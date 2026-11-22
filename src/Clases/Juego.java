@@ -92,9 +92,23 @@ public class Juego {
                     System.out.println("-------------------------------------");
                     System.out.println("Elige una de las salas disponibles\n");
                 }
+                if (jugador.getVida() <= 0) {
+                    derrota();
+                    return;
+                }
             }while(siguiente == null);
             salaActual = siguiente;
         }
+
+    }
+
+    private void derrota(){
+        System.out.println();
+        System.out.println("");
+        System.out.println("=================================");
+        System.out.println("        G A M E   O V E R        ");
+        System.out.println("=================================");
+        System.out.println("Has muerto...");
 
     }
 

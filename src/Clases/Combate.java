@@ -25,7 +25,7 @@ public class Combate {
         String op = "";
 
         System.out.println("---------------------------------");
-        System.out.println("Ha aparecido un enemigo\n");
+        System.out.println("Ha aparecido un enemigo");
         while(jugador.getVida() > 0 && vidaEnemigo > 0){
             String turnoActual = turnos.peek();
 
