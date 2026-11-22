@@ -52,6 +52,18 @@ public class Juego {
             System.out.println("-------------------------------------");
             System.out.println("            Estas en: \n" + "            " + italic + sala.getNombre() + reset) ;
             System.out.println("'" +sala.getDescripcion()+"'\n");
+            if(sala.tieneEnemigos()){
+                System.out.println("Enemigos en la sala:");
+                for(Enemigo enemigo : sala.getEnemigos()){
+                    System.out.println("- " + enemigo.getNombre()
+                            + " (Vida: " + enemigo.getVida()
+                            + ", Ataque: " + enemigo.getAtaque()
+                            + ", Defensa: " + enemigo.getDefensa()
+                            + ", Velocidad: " + enemigo.getVelocidad() + ")");
+                }
+            }else{
+                System.out.println("Esta sala no tiene enemigos.");
+            }
 
             NodoA izquierda = salaActual.getIzquierda();
             NodoA derecha = salaActual.getDerecha();
