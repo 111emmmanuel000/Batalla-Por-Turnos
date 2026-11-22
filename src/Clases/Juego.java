@@ -40,9 +40,12 @@ public class Juego {
         String gris = "\033[37m";
         String verde = "\033[32m";
 
+        String fondoRojo = "\033[41m";
+
         Arbol mapa = new Arbol();
         Jugador jugador = Jugador.crearJugador(br);
         Combate combate = new Combate(jugador);
+
         if(jugador == null) return;
         System.out.println(jugador.getNombre() + " entra a la mazmorra con el elemento de " + jugador.getElementoPrincipal());
         NodoA salaActual = mapa.getRaiz();
@@ -52,17 +55,22 @@ public class Juego {
             Sala sala = salaActual.getDato();
             System.out.println("-------------------------------------");
             System.out.println("            Estas en: \n" + "            " + italic + sala.getNombre() + reset) ;
-            System.out.println("'" +sala.getDescripcion()+"'\n");
+            System.out.println("'" +sala.getDescripcion()+"'");
+            System.out.println("-------------------------------------\n");
 
             NodoA izquierda = salaActual.getIzquierda();
             NodoA derecha = salaActual.getDerecha();
 
             NodoA siguiente = null;
             do{
-                if(izquierda != null)  System.out.println("1. ir hacia  " + izquierda.getDato().getNombre());
+
+                System.out.println("Vida:" +fondoRojo+"        "+ jugador.getVida()+"        "+ reset);
+                System.out.println("Ataque: +" + jugador.getAtaque());
+
+
+                if(izquierda != null)  System.out.println("\n1. ir hacia  " + izquierda.getDato().getNombre());
                 if(derecha != null) System.out.println("2. ir hacia " + derecha.getDato().getNombre());
                 if(salaActual.getPadre() != null){System.out.println("3. volver a "+ salaActual.getPadre().getDato().getNombre());}
-                System.out.println("4. consultar vida ");
                 System.out.println(rojo + "0. Salir del juego\n" + reset);
                 System.out.println("Elige una opcion: ");
 
@@ -81,9 +89,8 @@ public class Juego {
                     case "3":
                         siguiente = salaActual.getPadre();
                         break;
-                    case "4":
-                        System.out.println(jugador.getVida());
-                        break;
+                    /*case "4":
+                        break;*/
                     case "0":
                         return;
 
