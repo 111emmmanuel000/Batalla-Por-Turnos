@@ -7,7 +7,7 @@ public class Jugador extends Personaje{
 
     private Ataque.TipoAtaque elementoPrincipal;
     public Jugador(String nombre, Ataque.TipoAtaque elementoPrincipal){
-        super(nombre,100,12,5,8,0);
+        super(nombre,100,12,5,8,10);
         this.elementoPrincipal = Objects.requireNonNull(elementoPrincipal, "El jugador debe tener un elemento principal");
         }
 
