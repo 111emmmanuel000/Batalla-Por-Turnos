@@ -78,7 +78,7 @@ public class Personaje{
         return monedas;
     }
     public void setMonedas(int monedas){
-        if(monedas <=0){
+        if(monedas <0){
             throw new IllegalArgumentException("la cantidad de monedas debe ser positiva");
         }
         this.monedas = monedas;
