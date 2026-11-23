@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 public class Juego {
 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private final HistorialPartidas historial = new HistorialPartidas();
 
     public void menu() throws IOException{
 
@@ -16,12 +17,14 @@ public class Juego {
             System.out.println("0. Salir");
 
             op = br.readLine();
+            if(op == null) return;
 
             switch(op.trim()){
                 case "1":
                     iniciarPartidda();
                     break;
                 case "2":
+                    historial.mostrarHistorial();
                     break;
                 case "0":
                     break;
@@ -44,10 +47,10 @@ public class Juego {
 
         Arbol mapa = new Arbol();
         Jugador jugador = Jugador.crearJugador(br);
+        if(jugador == null) return;
         Combate combate = new Combate(jugador);
         Tienda tienda = new Tienda();
 
-        if(jugador == null) return;
         System.out.println(jugador.getNombre() + " entra a la mazmorra con el elemento de " + jugador.getElementoPrincipal());
         NodoA salaActual = mapa.getRaiz();
 
@@ -77,7 +80,10 @@ public class Juego {
                 System.out.println("Elige una opcion: ");
 
                 String opcion = br.readLine();
-                if(opcion == null ) return;
+                if(opcion == null ) {
+                    historial.registrarPartida(jugador, "Interrumpida");
+                    return;
+                }
 
                 switch(opcion.trim()){
                     case "1":
@@ -101,6 +107,7 @@ public class Juego {
                         tienda.mostrar();
                         break;
                     case "0":
+                        historial.registrarPartida(jugador, "Abandonada");
                         return;
 
                 }
@@ -110,6 +117,7 @@ public class Juego {
                 }
                 if (jugador.getVida() <= 0) {
                     derrota();
+                    historial.registrarPartida(jugador, "Derrota");
                     return;
                 }
             }while(siguiente == null);
