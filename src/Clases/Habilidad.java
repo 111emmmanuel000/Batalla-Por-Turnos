@@ -8,7 +8,7 @@ public class Habilidad {
     private int costoEnergia;
     private String descripcion;
     
-    public Habilidad (int id, String nombre, Elemento elemento, int danio, int costoEnergia, String descripcion){
+    public Habilidad (int id, String nombre, Elemento elemento, int dano, int costoEnergia, String descripcion){
         this.id = id;
         this.nombre = nombre;
         this.elemento = elemento;
