@@ -11,7 +11,7 @@ public class Personaje{
 
 
     //creamos el metodo constructor.
-    public Personaje (String nombre, int vida, int ataque, int defensa, int velocidad, int monedas, int energia){
+    public Personaje (String nombre, int vida, int ataque, int defensa, int monedas, int energia){
         this.nombre = nombre;
         this.vida = vida;
         this.ataque = ataque;
