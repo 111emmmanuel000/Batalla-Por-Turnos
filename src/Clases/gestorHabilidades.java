@@ -6,7 +6,7 @@ import java.io.Reader;
 import java.util.LinkedList;
 
 public class gestorHabilidades {
-    public static LinkedList<Habilidad> cargarPorElemento(Elemento elemento){
+    public static LinkedList<Habilidad> cargarPorElemento(Ataque.TipoAtaque elemento){
         LinkedList<Habilidad> listaHabilidades = new LinkedList<>();
         if(elemento == null){
             throw new IllegalArgumentException("El elemento no puede ser Null");
@@ -25,7 +25,7 @@ public class gestorHabilidades {
                 JsonObject objeto = dato.getAsJsonObject();
 
                 //Obtener el elemento de la habilidad.
-                Elemento tipo = Elemento.valueOf(objeto.get("elemento").getAsString());
+                Ataque.TipoAtaque tipo = Ataque.TipoAtaque.valueOf(objeto.get("elemento").getAsString());
 
                 //Comprobamos si coincide con el elemento solicitado
                 if(tipo == elemento){

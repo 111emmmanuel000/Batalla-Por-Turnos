@@ -3,12 +3,12 @@ package Clases;
 public class Habilidad {
     private int id;
     private String nombre;
-    private Elemento elemento;
+    private Ataque.TipoAtaque elemento;
     private int dano;
     private int costoEnergia;
     private String descripcion;
     
-    public Habilidad (int id, String nombre, Elemento elemento, int dano, int costoEnergia, String descripcion){
+    public Habilidad (int id, String nombre, Ataque.TipoAtaque elemento, int dano, int costoEnergia, String descripcion){
         this.id = id;
         this.nombre = nombre;
         this.elemento = elemento;
@@ -24,7 +24,7 @@ public class Habilidad {
         return nombre;
     }
 
-    public Elemento getElemento() {
+    public Ataque.TipoAtaque getElemento() {
         return elemento;
     }
 
