@@ -5,18 +5,19 @@ public class Personaje{
     private int vida;
     private int ataque;
     private int defensa;
-    private int velocidad;
     private int monedas = 10;
+    private int energia = 60;
+    private static final int energiaMaxima = 100;
 
 
     //creamos el metodo constructor.
-    public Personaje (String nombre, int vida, int ataque, int defensa, int velocidad, int monedas){
+    public Personaje (String nombre, int vida, int ataque, int defensa, int velocidad, int monedas, int energia){
         this.nombre = nombre;
         this.vida = vida;
         this.ataque = ataque;
         this.defensa = defensa;
-        this.velocidad = velocidad;
         this.monedas = monedas;
+        this.energia = energia;
     }
 
     //Creamos los Getters y Setters para cada atributo.
@@ -59,20 +60,12 @@ public class Personaje{
     public int getDefensa(){
         return defensa;
     }
+
     public void setDefensa(int defensa){
         if(defensa <= 0){
             throw new IllegalArgumentException("El valor de la defensa no puede ser igual a 0");
         }
         this.defensa = defensa;
-    }
-    public int getVelocidad(){
-        return velocidad;
-    }
-    public void setVelocidad(int velocidad){
-        if(velocidad <= 0){
-            throw new IllegalArgumentException("La velocidad debe positiva");
-        }
-        this.velocidad = velocidad;
     }
     
     public int getMonedas(){
@@ -96,5 +89,25 @@ public class Personaje{
         }
         monedas -= cantidad;
         return true;
+    }
+    public int getEnergia(){
+        return energia;
+    }
+    public int getEnergiaMaxima(){
+        return energiaMaxima;
+    }
+    public boolean gastarEnergia(int cantidad){
+        if(cantidad < 0 || cantidad>energia){
+            return false;
+        }
+        energia-=cantidad;
+        return true;
+    }
+
+    public void recuperarEnergia(int cantidad){
+        if(cantidad <= 0){
+            return;
+        }
+        energia = Math.min(energiaMaxima, energia + cantidad);
     }
 }

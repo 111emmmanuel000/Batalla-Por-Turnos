@@ -5,15 +5,53 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.LinkedList;
 
 public class Combate {
 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     Jugador jugador;
     boolean victoria;
+    LinkedList<Habilidad> habilidadesJugador;
 
     public Combate(Jugador jugador){
         this.jugador = jugador;
+        this.habilidadesJugador = gestorHabilidades.cargarPorElemento(
+                jugador.getElementoPrincipal()
+        );
+    }
+    private int seleccionarHabilidad() throws IOException {
+        //Creamos ciclo que se repite en caso de que el usuario ingrese una opción incorrecta.
+        while (true) {
+            System.out.println("\n----- SELECCION DE ATAQUE -----");
+            System.out.println("0. Ataque basico - " + jugador.getAtaque() + " de daño");
+            //Ciclo para listar las habilidades del jugador y que pueda seleccionar una opción.
+            for (int i = 0; i < habilidadesJugador.size(); i++) {
+                Habilidad habilidad = habilidadesJugador.get(i);
+                System.out.println((i + 1) + ". " + habilidad.getNombre()
+                        + " | Daño: " + habilidad.getDano()
+                        + " | Energia: " + habilidad.getCostoEnergia());
+            }
+            System.out.println("\nEnergia disponible: " + jugador.getEnergia());
+            System.out.print("Selecciona tu ataque: ");
+            String opcion = br.readLine();
+            if (opcion == null) {
+                return -1;
+            }
+            if (opcion.trim().equals("0")) {
+                return 0;
+            }
+            try {
+                int seleccion = Integer.parseInt(opcion.trim());
+                //Comprobamos que el jugador seleccione una opción valida (de 1 a 3).
+                if (seleccion >= 1 && seleccion <= habilidadesJugador.size()) {
+                    return seleccion;
+                }
+                System.out.println("Selecciona una opcion valida.");
+            } catch (NumberFormatException e) {
+                System.out.println("Debes ingresar un numero.");
+            }
+        }
     }
 
     void combate()throws IOException{
@@ -44,7 +82,35 @@ public class Combate {
 
                 switch (op.trim()) {
                     case "1":
-                        vidaEnemigo = vidaEnemigo - jugador.getAtaque();
+                        int seleccion = seleccionarHabilidad();
+                        // Verificar si se terminó la entrada de datos
+                        if (seleccion == -1) {
+                            return;
+                        }
+                        // Opcion 0: ataque basico
+                        if (seleccion == 0) {
+                            vidaEnemigo -= jugador.getAtaque();
+                            System.out.println("Utilizaste un ataque basico.");
+                            System.out.println("Daño causado: " + jugador.getAtaque());
+                        } else {
+                            // Obtener la habilidad seleccionada
+                            Habilidad habilidad = habilidadesJugador.get(seleccion - 1);
+                            // Verificar si tiene suficiente energia
+                            if (jugador.gastarEnergia(habilidad.getCostoEnergia())) {
+                                vidaEnemigo -= habilidad.getDano();
+                                System.out.println("Utilizaste: " + habilidad.getNombre());
+                                System.out.println("Daño causado: " + habilidad.getDano());
+                            } else {
+                                // Si no tiene energia, utiliza ataque basico
+                                vidaEnemigo -= jugador.getAtaque();
+                                System.out.println("No tienes suficiente energia.");
+                                System.out.println("Se ejecutara un ataque basico.");
+                                System.out.println("Daño causado: " + jugador.getAtaque());
+                            }
+                        }
+                        // Evitar que la vida del enemigo sea negativa
+                        vidaEnemigo = Math.max(0, vidaEnemigo);
+                        System.out.println("Energia restante: " + jugador.getEnergia());
                         System.out.println("Vida del enemigo: " + vidaEnemigo);
                         break;
 

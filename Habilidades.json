@@ -5,7 +5,7 @@
             "id": 1,
             "nombre": "Bola de fuego",
             "elemento": "FUEGO",
-            "dano": 30,
+            "dano": 20,
             "costoEnergia": 10,
             "descripcion": "Lanza una bola de fuego al enemigo"
         },
@@ -13,7 +13,7 @@
             "id": 2,
             "nombre": "Lluvia de fuego",
             "elemento": "FUEGO",
-            "dano": 45,
+            "dano": 13,
             "costoEnergia": 20,
             "descripcion": "Provoca una lluvia de llamas sobre el enemigo"
         },
@@ -21,7 +21,7 @@
             "id": 3,
             "nombre": "Explosión envolvente",
             "elemento": "FUEGO",
-            "dano": 60,
+            "dano": 25,
             "costoEnergia": 30,
             "descripcion": "Genera una explosión de fuego"
         },
@@ -29,7 +29,7 @@
             "id": 4,
             "nombre": "Hidrobomba",
             "elemento": "AGUA",
-            "dano": 35,
+            "dano": 15,
             "costoEnergia": 10,
             "descripcion": "Dispara un potente chorro de agua"
         },
@@ -37,7 +37,7 @@
             "id": 5,
             "nombre": "Ola gigante",
             "elemento": "AGUA",
-            "dano": 50,
+            "dano": 25,
             "costoEnergia": 20,
             "descripcion": "Golpea al enemigo con una gran ola"
         },
@@ -45,7 +45,7 @@
             "id": 6,
             "nombre": "Torrente",
             "elemento": "AGUA",
-            "dano": 65,
+            "dano": 35,
             "costoEnergia": 30,
             "descripcion": "Libera una corriente de agua de gran potencia"
         },
@@ -53,7 +53,7 @@
             "id": 7,
             "nombre": "Roca afilada",
             "elemento": "TIERRA",
-            "dano": 30,
+            "dano": 15,
             "costoEnergia": 10,
             "descripcion": "Lanza fragmentos de roca contra el enemigo"
         },
@@ -61,7 +61,7 @@
             "id": 8,
             "nombre": "Terremoto",
             "elemento": "TIERRA",
-            "dano": 50,
+            "dano": 40,
             "costoEnergia": 20,
             "descripcion": "Provoca un fuerte movimiento sísmico"
         },
@@ -69,7 +69,7 @@
             "id": 9,
             "nombre": "Avalancha",
             "elemento": "TIERRA",
-            "dano": 65,
+            "dano": 25,
             "costoEnergia": 30,
             "descripcion": "Desata una avalancha sobre el enemigo"
         },
@@ -85,7 +85,7 @@
             "id": 11,
             "nombre": "Tornado",
             "elemento": "AIRE",
-            "dano": 45,
+            "dano": 25,
             "costoEnergia": 20,
             "descripcion": "Genera un poderoso tornado"
         },
@@ -93,7 +93,7 @@
             "id": 12,
             "nombre": "Tormenta",
             "elemento": "AIRE",
-            "dano": 65,
+            "dano": 35,
             "costoEnergia": 30,
             "descripcion": "Desata una tormenta de fuertes vientos"
         }

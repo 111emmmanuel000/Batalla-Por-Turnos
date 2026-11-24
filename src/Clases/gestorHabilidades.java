@@ -10,7 +10,6 @@ public class gestorHabilidades {
         LinkedList<Habilidad> listaHabilidades = new LinkedList<>();
         if(elemento == null){
             throw new IllegalArgumentException("El elemento no puede ser Null");
-
         }
         try(Reader archivo = new FileReader("Habilidades.json")){
 
