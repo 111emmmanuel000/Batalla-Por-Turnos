@@ -11,7 +11,8 @@ public class Sala {
         this.enemigo = enemigo;
          this.rival = rival;
     }
-
+    public Enemigo getRival() {return rival;}
+    
     public String getNombre() {return nombre;}
 
     public String getDescripcion() {return descripcion;}
