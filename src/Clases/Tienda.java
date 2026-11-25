@@ -68,7 +68,9 @@ public class Tienda {
 
     void abrir(Jugador jugador)throws IOException {
         NodoM actual = raiz;
+        Consola.limpiar();
         while (true) {
+
             System.out.println("----------T I E N D A----------");
             System.out.println("Monedas: " + jugador.getMonedas());
 
@@ -99,6 +101,9 @@ public class Tienda {
             String op = br.readLine();
 
             if (op == null) return;
+
+            Consola.limpiar();
+
             NodoM siguiente;
 
             switch (op.trim()) {

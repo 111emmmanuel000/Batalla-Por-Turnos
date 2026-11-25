@@ -2,6 +2,8 @@ package Clases;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import org.fusesource.jansi.Ansi;
+
 public class Juego {
 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -11,7 +13,11 @@ public class Juego {
 
         String op;
         do{
-            System.out.println("\n------------ M E N U ------------\n");
+            Consola.limpiar();
+            System.out.println(Ansi.ansi()
+                    .fg(Ansi.Color.CYAN)
+                    .a("\n------------ M E N U ------------")
+                    .reset());
             System.out.println("1. Iniciar partida");
             System.out.println("2. Historial de partidas");
             System.out.println("0. Salir");
@@ -55,23 +61,21 @@ public class Juego {
         NodoA salaActual = mapa.getRaiz();
 
         while(true){
-
+            Consola.limpiar();
             Sala sala = salaActual.getDato();
             NodoA izquierda = salaActual.getIzquierda();
             NodoA derecha = salaActual.getDerecha();
             NodoA siguiente = null;
             do{
 
-                System.out.println("-------------------------------------");
+                System.out.println("\n-------------------------------------");
                 System.out.println("            Estas en: \n" + "            " + italic + sala.getNombre() + reset) ;
                 System.out.println("'" +sala.getDescripcion()+"'");
                 System.out.println("-------------------------------------\n");
 
-
                 System.out.println("Vida:" +fondoRojo+"        "+ jugador.getVida()+"        "+ reset);
                 System.out.println("Ataque: " + jugador.getAtaque());
                 System.out.println("Monedas: " + jugador.getMonedas());
-
 
                 if(izquierda != null)  System.out.println("\n1. ir hacia  " + izquierda.getDato().getNombre());
                 if(derecha != null) System.out.println("2. ir hacia " + derecha.getDato().getNombre());
@@ -88,6 +92,8 @@ public class Juego {
 
                 switch(opcion.trim()){
                     case "1":
+                        System.out.print("\033[H\033[2J");
+                        System.out.flush();
                         siguiente = izquierda;
                         break;
                     case "2":
@@ -104,6 +110,7 @@ public class Juego {
                         return;
 
                 }
+                Consola.limpiar();
                 if(siguiente == null){
                     System.out.println("-------------------------------------");
                     System.out.println("Elige una de las salas disponibles\n");

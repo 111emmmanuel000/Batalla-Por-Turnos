@@ -66,6 +66,7 @@ public class Combate {
         turnos.offer("enemigo");
         String op = "";
 
+        Consola.limpiar();
         System.out.println("---------------------------------");
         System.out.println("Ha aparecido un enemigo");
         while(jugador.getVida() > 0 && vidaEnemigo > 0){
@@ -81,29 +82,20 @@ public class Combate {
                 }
 
                 op = br.readLine();
-
+                Consola.limpiar();
                 if (op == null) return;
 
 
                 switch (op.trim()) {
-                    case "2":
-                        if (!planta.tieneUsos()) {
-                            System.out.println("Ya no te quedan usos de la planta.");
-                            continue;
-                        }
-                        if (jugador.getVida() >= VIDA_MAXIMA) {
-                            System.out.println("Tu vida ya está al máximo.");
-                            continue;
-                        }
-                        int curado = planta.usar(jugador, VIDA_MAXIMA);
-                        System.out.println("Recuperaste " + curado + " de vida.");
-                        break;
                     case "1":
                         int seleccion = seleccionarHabilidad();
                         // Verificar si se terminó la entrada de datos
                         if (seleccion == -1) {
                             return;
                         }
+
+                        Consola.limpiar();
+
                         // Opcion 0: ataque basico
                         if (seleccion == 0) {
                             vidaEnemigo -= jugador.getAtaque();
@@ -130,6 +122,23 @@ public class Combate {
                         System.out.println("Energia restante: " + jugador.getEnergia());
                         System.out.println("Vida del enemigo: " + vidaEnemigo);
                         break;
+
+                    case "2":
+                        Consola.limpiar();
+                        if (!planta.tieneUsos()) {
+                            System.out.println("Ya no te quedan usos de la planta.");
+                            continue;
+                        }
+                        Consola.limpiar();
+                        if (jugador.getVida() >= VIDA_MAXIMA) {
+                            System.out.println("Tu vida ya está al máximo.");
+                            continue;
+                        }
+                        Consola.limpiar();
+                        int curado = planta.usar(jugador, VIDA_MAXIMA);
+                        System.out.println("Recuperaste " + curado + " de vida.");
+                        break;
+
                      default:
                         System.out.println("Opcion invalida.");
                         continue;

@@ -1,2 +1,9 @@
 22/11/2026 20:35 | Jugador: re | Elemento: FUEGO | Resultado: Derrota | Vida restante: 0
 24/11/2026 16:47 | Jugador: Juan | Elemento: AGUA | Resultado: Abandonada | Vida restante: 50
+24/11/2026 20:22 | Jugador: asdfasdf | Elemento: FUEGO | Resultado: Abandonada | Vida restante: 100
+24/11/2026 20:24 | Jugador: asdf | Elemento: AGUA | Resultado: Abandonada | Vida restante: 70
+24/11/2026 22:28 | Jugador: asdf | Elemento: AGUA | Resultado: Derrota | Vida restante: 0
+24/11/2026 22:31 | Jugador: asdf | Elemento: TIERRA | Resultado: Abandonada | Vida restante: 100
+24/11/2026 22:33 | Jugador: asdfas | Elemento: FUEGO | Resultado: Abandonada | Vida restante: 102
+24/11/2026 22:35 | Jugador: asdf | Elemento: FUEGO | Resultado: Derrota | Vida restante: 0
+24/11/2026 23:12 | Jugador: asdf | Elemento: AGUA | Resultado: Abandonada | Vida restante: 100
