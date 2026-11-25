@@ -86,9 +86,11 @@ El sistema permite:
 Las mejoras se organizan en diferentes ramas, permitiendo una progresión dentro del sistema de compra.
 
 Estructuras de datos implementadas:
+
 Arbol Binario:
 1. Se utiliza para organizar el mapa de salas y permitir la navegación entre diferentes zonas.
 Se implementan nodos que almacenan salas y mantienen referencias hacia sus hijos y su nodo padre, facilitando la exploración y el regreso a zonas anteriores.
+
 2. La tienda utiliza nodos para organizar las mejoras, sus relaciones y el sistema de desbloqueo progresivo.
 Cada nodo puede almacenar una mejora, referencias a sus nodos hijos y estados que indican si la mejora está desbloqueada o comprada.
 
@@ -98,3 +100,15 @@ Esto permite gestionar el orden de las acciones durante el enfrentamiento.
 Pilas: Las plantas medicinales se gestionan mediante una estructura de pila, donde los usos disponibles se almacenan y consumen siguiendo el principio LIFO (Last In, First Out).
 
 Lista enlazada: Las habilidades disponibles para el jugador se almacenan en una lista enlazada, permitiendo recorrerlas y seleccionar la habilidad que se desea utilizar durante el combate.
+
+Requisitos del sistema:
+
+1. Windows 10 o Windows 11 de 64 bits.
+2. Espacio suficiente para descomprimir los archivos.
+3. No se requiere Java instalado.
+
+Instalación y ejecución:
+
+1. Descargar el archivo comprimido del juego.
+2. Extraer todo su contenido en carpeta.
+3. Ejecutar BatallaPorTurnos.exe
