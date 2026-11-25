@@ -122,7 +122,7 @@ public class Juego {
             Sala destino = siguiente.getDato();
 
             if(siguiente != salaActual.getPadre() && destino.isEnemigo()){
-                combate.combate();
+                combate.combate(profundidad(siguiente) >= 2);
 
                 if (jugador.getVida() <= 0) {
                     derrota();
@@ -139,7 +139,14 @@ public class Juego {
         }
 
     }
-
+    private int profundidad(NodoA nodo){
+        int n = 0;
+        while(nodo.getPadre() != null){
+            n++;
+            nodo = nodo.getPadre();
+        }
+        return n;
+    }
     private void derrota(){
         System.out.println();
         System.out.println("");
