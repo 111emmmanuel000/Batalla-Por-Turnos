@@ -10,6 +10,7 @@ public class Arbol{
     String amarillo = "\033[33m";
     public Arbol(){
         raiz = new NodoA(new Sala("Entrada","Frente a ti hay dos caminos posibles...",false));
+<<<<<<< HEAD
         NodoA puertaA = new NodoA(new Sala(verde + "El Bosque" + reset, "Árboles retorcidos bloquean la luz y algo acecha entre las sombras.",true));
         NodoA puertaB = new NodoA(new Sala(amarillo + "La Caverna"+ reset ,"El eco de tus pasos resuena entre las paredes de piedra.",true));
         raiz.setIzquierda(puertaA);
@@ -20,6 +21,18 @@ public class Arbol{
         puertaA.setDerecha(puertaAb);
         NodoA puertaBa = new NodoA(new Sala(rojo + "Ruinas Volcanicas"+ reset, "El calor es sofocante y la lava ilumina el camino.",true));
         NodoA puertaBb = new NodoA(new Sala(amarillo + "Desierto" + reset, "La arena y el calor dificultan cada paso.",true));
+=======
+        NodoA puertaA = new NodoA(new Sala(verde + "El Bosque" + reset, "Entre los pinos se oye correr el agua.",true));
+        NodoA puertaB = new NodoA(new Sala(amarillo + "La Caverna"+ reset ,"Un golpe de metal rompe el silencio.",true));
+        raiz.setIzquierda(puertaA);
+        raiz.setDerecha(puertaB);
+        NodoA puertaAa = new NodoA(new Sala(azul + "El Lago" + reset, "Algo tira de una barca desde el fondo.",true));
+        NodoA puertaAb = new NodoA(new Sala(gris + "Bosque Alto"+ reset, "Una sombra te observa desde las ramas.",true));
+        puertaA.setIzquierda(puertaAa);
+        puertaA.setDerecha(puertaAb);
+        NodoA puertaBa = new NodoA(new Sala(rojo + "Ruinas Volcanicas"+ reset, "La lava ilumina un puente de piedra.",true));
+        NodoA puertaBb = new NodoA(new Sala("La mina", "Una vagoneta vacía rueda hacia ti.",true));
+>>>>>>> e69b51f (Descripciones de las salas)
         puertaB.setIzquierda(puertaBa);
         puertaB.setDerecha(puertaBb);
 
