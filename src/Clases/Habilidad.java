@@ -20,23 +20,23 @@ public class Habilidad {
         return id;
     }
 
-    public String getNombre() {
+        public String getNombre() {
         return nombre;
     }
 
-    public Ataque.TipoAtaque getElemento() {
-        return elemento;
-    }
+        public Ataque.TipoAtaque getElemento() {
+            return elemento;
+        }
 
-    public int getDanio() {
+        public int getDano() {
         return dano;
     }
 
-    public int getCostoEnergia() {
+        public int getCostoEnergia() {
         return costoEnergia;
     }
 
-    public String getDescripcion() {
+        public String getDescripcion() {
         return descripcion;
     }
 }
