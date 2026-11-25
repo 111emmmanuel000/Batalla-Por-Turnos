@@ -14,12 +14,12 @@ public class Arbol{
         NodoA puertaB = new NodoA(new Sala(amarillo + "La Caverna"+ reset ,"",true));
         raiz.setIzquierda(puertaA);
         raiz.setDerecha(puertaB);
-        NodoA puertaAa = new NodoA(new Sala(azul + "El Lago" + reset, "",false));
-        NodoA puertaAb = new NodoA(new Sala(gris + "Bosque Alto"+ reset, "",false));
+        NodoA puertaAa = new NodoA(new Sala(azul + "El Lago" + reset, "",true));
+        NodoA puertaAb = new NodoA(new Sala(gris + "Bosque Alto"+ reset, "",true));
         puertaA.setIzquierda(puertaAa);
         puertaA.setDerecha(puertaAb);
-        NodoA puertaBa = new NodoA(new Sala(rojo + "Ruinas Volcanicas"+ reset, "",false));
-        NodoA puertaBb = new NodoA(new Sala("Puerda derecha lado B", "",false));
+        NodoA puertaBa = new NodoA(new Sala(rojo + "Ruinas Volcanicas"+ reset, "",true));
+        NodoA puertaBb = new NodoA(new Sala("Puerda derecha lado B", "",true));
         puertaB.setIzquierda(puertaBa);
         puertaB.setDerecha(puertaBb);
 
