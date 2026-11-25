@@ -14,7 +14,6 @@ public class Combate {
     boolean victoria;
     LinkedList<Habilidad> habilidadesJugador;
     private final PlantaMedicinal planta = new PlantaMedicinal();
-    private static final int recompensa = 5;
 
     public Combate(Jugador jugador){
         this.jugador = jugador;
@@ -56,9 +55,10 @@ public class Combate {
         }
     }
 
-    void combate()throws IOException{
-        int vidaEnemigo = 60;
-        int ataqueEnemigo = 10;
+    void combate(boolean dificil)throws IOException{
+        int vidaEnemigo = dificil ? 95 : 60;
+        int ataqueEnemigo = dificil ? 16 : 10;
+        int monedasEnemigo = dificil ? 8 : 5;
         planta.recargar();
         victoria = false;
 
@@ -156,8 +156,8 @@ public class Combate {
         }  
         if (vidaEnemigo <= 0) {
             victoria = true;
-            jugador.agregarMonedas(recompensa);
-            System.out.println("Derrotaste al enemigo y obtienes " + recompensa + " monedas.");
+            jugador.agregarMonedas(monedasEnemigo);
+            System.out.println("Derrotaste al enemigo y obtienes " + monedasEnemigo + " monedas.");
         }
     }
 
