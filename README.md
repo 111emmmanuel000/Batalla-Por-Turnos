@@ -30,5 +30,5 @@ Mejoras de la tienda (Tienda.java, NodoM.java): cada mejora es un nodo, y solo s
 
 Lista enlazada: las habilidades del jugador (gestorHabilidades.java y Combate.java). Se cargan desde Habilidades.json en un LinkedList, filtradas por el elemento del jugador.
 
-Cómo correr el juego
+# Cómo correr el juego
 descomprime el archivo y abre el ejecutable
