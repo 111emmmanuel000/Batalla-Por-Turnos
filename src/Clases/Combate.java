@@ -157,6 +157,7 @@ public class Combate {
         if (vidaEnemigo <= 0) {
             victoria = true;
             jugador.agregarMonedas(monedasEnemigo);
+            jugador.recuperarEnergia(30);
             System.out.println("Derrotaste al enemigo y obtienes " + monedasEnemigo + " monedas.");
         }
     }
