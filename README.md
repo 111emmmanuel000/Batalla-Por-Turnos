@@ -16,3 +16,19 @@ Caracteristicas principales:
 
 Exploración: Navegación entre diferentes salas mediante un mapa estructurado.
 Combate por turnos: enfrentamiento donde el jugador y el enemigo alternan sus acciones.
+
+# Dónde se usan las estructuras de datos
+
+Pila (stack): en la planta medicinal (PlantaMedicinal.java). Se implementa con un ArrayDeque usado como pila: al empezar cada combate se hacen dos push, y cada curación hace un pop. Por eso tiene exactamente dos usos por combate.
+
+Cola (queue): en los turnos del combate (Combate.java). La cola alterna entre "jugador" y "enemigo": en cada vuelta se toma el frente con peek(), se quita con poll() y se vuelve a meter al final con offer().
+
+Árbol:
+
+Mapa de salas (Arbol.java, NodoA.java): árbol binario donde la Entrada es la raíz. Cada nodo guarda su padre, lo que permite la opción "volver a..." y calcular la profundidad de una sala.
+Mejoras de la tienda (Tienda.java, NodoM.java): cada mejora es un nodo, y solo se puede comprar cuando su padre ya está desbloqueado.
+
+Lista enlazada: las habilidades del jugador (gestorHabilidades.java y Combate.java). Se cargan desde Habilidades.json en un LinkedList, filtradas por el elemento del jugador.
+
+Cómo correr el juego
+descomprime el archivo y abre el ejecutable
