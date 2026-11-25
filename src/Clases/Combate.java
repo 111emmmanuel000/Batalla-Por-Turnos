@@ -55,7 +55,7 @@ public class Combate {
     }
 
     void combate()throws IOException{
-        int vidaEnemigo = 100;
+        int vidaEnemigo = 60;
         int ataqueEnemigo = 10;
 
         Queue<String> turnos = new ArrayDeque<>();
