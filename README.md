@@ -84,3 +84,17 @@ El sistema permite:
 6. Consultar las mejoras disponibles, bloqueadas y compradas.
 
 Las mejoras se organizan en diferentes ramas, permitiendo una progresión dentro del sistema de compra.
+
+Estructuras de datos implementadas:
+Arbol Binario:
+1. Se utiliza para organizar el mapa de salas y permitir la navegación entre diferentes zonas.
+Se implementan nodos que almacenan salas y mantienen referencias hacia sus hijos y su nodo padre, facilitando la exploración y el regreso a zonas anteriores.
+2. La tienda utiliza nodos para organizar las mejoras, sus relaciones y el sistema de desbloqueo progresivo.
+Cada nodo puede almacenar una mejora, referencias a sus nodos hijos y estados que indican si la mejora está desbloqueada o comprada.
+
+Colas: El sistema de combate utiliza una cola para organizar la alternancia entre el turno del jugador y el turno del enemigo.
+Esto permite gestionar el orden de las acciones durante el enfrentamiento.
+
+Pilas: Las plantas medicinales se gestionan mediante una estructura de pila, donde los usos disponibles se almacenan y consumen siguiendo el principio LIFO (Last In, First Out).
+
+Lista enlazada: Las habilidades disponibles para el jugador se almacenan en una lista enlazada, permitiendo recorrerlas y seleccionar la habilidad que se desea utilizar durante el combate.
