@@ -131,7 +131,9 @@ public class Combate {
                         System.out.println("Energia restante: " + jugador.getEnergia());
                         System.out.println("Vida del enemigo: " + vidaEnemigo);
                         break;
-
+                     default:
+                        System.out.println("Opcion invalida.");
+                        continue;
                 }
             }else{
                 int vidaJugador = jugador.getVida() - ataqueEnemigo;
