@@ -50,6 +50,7 @@ public class Juego {
         String verde = "\033[32m";
 
         String fondoRojo = "\033[41m";
+        String fondoVerde = "\u001B[42m";
 
         Arbol mapa = new Arbol();
         Jugador jugador = Jugador.crearJugador(br);
@@ -74,6 +75,7 @@ public class Juego {
                 System.out.println("-------------------------------------\n");
 
                 System.out.println("Vida:" +fondoRojo+"        "+ jugador.getVida()+"        "+ reset);
+                System.out.println("Energia:" +fondoVerde+"        "+ jugador.getEnergia()+"        "+ reset);
                 System.out.println("Ataque: " + jugador.getAtaque());
                 System.out.println("Monedas: " + jugador.getMonedas());
 
