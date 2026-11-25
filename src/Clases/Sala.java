@@ -4,11 +4,12 @@ public class Sala {
     private String nombre;
     private String descripcion;
     private boolean enemigo;
-
-    public Sala(String nombre, String descripcion,boolean enemigo){
+    private Enemigo rival;
+    public Sala(String nombre, String descripcion,boolean enemigo, Enemigo riva){
         this.nombre = nombre;
         this.descripcion=descripcion;
         this.enemigo = enemigo;
+         this.rival = rival;
     }
 
     public String getNombre() {return nombre;}
