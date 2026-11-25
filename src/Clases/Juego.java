@@ -57,16 +57,16 @@ public class Juego {
         while(true){
 
             Sala sala = salaActual.getDato();
-            System.out.println("-------------------------------------");
-            System.out.println("            Estas en: \n" + "            " + italic + sala.getNombre() + reset) ;
-            System.out.println("'" +sala.getDescripcion()+"'");
-            System.out.println("-------------------------------------\n");
-
             NodoA izquierda = salaActual.getIzquierda();
             NodoA derecha = salaActual.getDerecha();
-
             NodoA siguiente = null;
             do{
+
+                System.out.println("-------------------------------------");
+                System.out.println("            Estas en: \n" + "            " + italic + sala.getNombre() + reset) ;
+                System.out.println("'" +sala.getDescripcion()+"'");
+                System.out.println("-------------------------------------\n");
+
 
                 System.out.println("Vida:" +fondoRojo+"        "+ jugador.getVida()+"        "+ reset);
                 System.out.println("Ataque: " + jugador.getAtaque());
@@ -89,17 +89,9 @@ public class Juego {
                 switch(opcion.trim()){
                     case "1":
                         siguiente = izquierda;
-                        if(izquierda.getDato().isEnemigo()) combate.combate();
-                        if(combate.victoria == true) {
-                            izquierda.getDato().enemigoDerrotado();
-                        }
                         break;
                     case "2":
                         siguiente = derecha;
-                        if(derecha.getDato().isEnemigo()) combate.combate();
-                        if(combate.victoria == true) {
-                            derecha.getDato().enemigoDerrotado();
-                        }
                         break;
                     case "3":
                         siguiente = salaActual.getPadre();
@@ -116,12 +108,24 @@ public class Juego {
                     System.out.println("-------------------------------------");
                     System.out.println("Elige una de las salas disponibles\n");
                 }
+            }while(siguiente == null);
+
+            Sala destino = siguiente.getDato();
+
+            if(siguiente != salaActual.getPadre() && destino.isEnemigo()){
+                combate.combate();
+
                 if (jugador.getVida() <= 0) {
                     derrota();
                     historial.registrarPartida(jugador, "Derrota");
                     return;
                 }
-            }while(siguiente == null);
+
+                if(combate.victoria){
+                    destino.enemigoDerrotado();
+                }
+            }
+
             salaActual = siguiente;
         }
 
