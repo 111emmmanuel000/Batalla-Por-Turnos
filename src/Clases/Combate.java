@@ -77,7 +77,7 @@ public class Combate {
                 System.out.println("\nTu turno");
                 System.out.println("1. Atacar");
                 if (planta.tieneUsos()) {
-                    System.out.println("3. Usar planta medicinal (quedan " + planta.usosRestantes() + ")");
+                    System.out.println("2. Usar planta medicinal (quedan " + planta.usosRestantes() + ")");
                 }
 
                 op = br.readLine();
@@ -86,7 +86,7 @@ public class Combate {
 
 
                 switch (op.trim()) {
-                    case "3":
+                    case "2":
                         if (!planta.tieneUsos()) {
                             System.out.println("Ya no te quedan usos de la planta.");
                             continue;
