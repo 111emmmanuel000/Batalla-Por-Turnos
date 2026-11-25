@@ -3,6 +3,7 @@ package Clases;
 public class Personaje{
     private String nombre;
     private int vida;
+    private int vidaMaxima;
     private int ataque;
     private int defensa;
     private int monedas = 10;
@@ -14,6 +15,7 @@ public class Personaje{
     public Personaje (String nombre, int vida, int ataque, int defensa, int monedas, int energia){
         this.nombre = nombre;
         this.vida = vida;
+        this.vidaMaxima = vida;
         this.ataque = ataque;
         this.defensa = defensa;
         this.monedas = monedas;
@@ -38,6 +40,15 @@ public class Personaje{
             throw new IllegalArgumentException("La vida no puede ser negativa");
         }
         this.vida = vida;
+    }
+    public int getVidaMaxima(){
+        return vidaMaxima;
+    }
+    public void aumentarVidaMaxima(int cantidad){
+        if(cantidad <= 0){
+            throw new IllegalArgumentException("El aumento debe ser positivo");
+        }
+        vidaMaxima += cantidad;
     }
 
     public void recibirDano(int dano) {
