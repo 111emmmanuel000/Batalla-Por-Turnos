@@ -13,6 +13,8 @@ public class Combate {
     Jugador jugador;
     boolean victoria;
     LinkedList<Habilidad> habilidadesJugador;
+    private final PlantaMedicinal planta = new PlantaMedicinal();
+    private static final int VIDA_MAXIMA = 100;
 
     public Combate(Jugador jugador){
         this.jugador = jugador;
@@ -57,6 +59,7 @@ public class Combate {
     void combate()throws IOException{
         int vidaEnemigo = 60;
         int ataqueEnemigo = 10;
+        planta.recargar();
 
         Queue<String> turnos = new ArrayDeque<>();
         turnos.offer("jugador");
@@ -74,6 +77,9 @@ public class Combate {
                 System.out.println("\nTu turno");
                 System.out.println("1. Atacar");
                 System.out.println("2. huir");
+                if (planta.tieneUsos()) {
+                    System.out.println("3. Usar planta medicinal (quedan " + planta.usosRestantes() + ")");
+                }
 
                 op = br.readLine();
 
@@ -81,6 +87,18 @@ public class Combate {
 
 
                 switch (op.trim()) {
+                    case "3":
+                        if (!planta.tieneUsos()) {
+                            System.out.println("Ya no te quedan usos de la planta.");
+                            continue;
+                        }
+                        if (jugador.getVida() >= VIDA_MAXIMA) {
+                            System.out.println("Tu vida ya está al máximo.");
+                            continue;
+                        }
+                        int curado = planta.usar(jugador, VIDA_MAXIMA);
+                        System.out.println("Recuperaste " + curado + " de vida.");
+                        break;
                     case "1":
                         int seleccion = seleccionarHabilidad();
                         // Verificar si se terminó la entrada de datos
