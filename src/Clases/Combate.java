@@ -14,7 +14,7 @@ public class Combate {
     boolean victoria;
     LinkedList<Habilidad> habilidadesJugador;
     private final PlantaMedicinal planta = new PlantaMedicinal();
-    private static final int VIDA_MAXIMA = 100;
+    private static final int recompensa = 5;
 
     public Combate(Jugador jugador){
         this.jugador = jugador;
@@ -60,6 +60,7 @@ public class Combate {
         int vidaEnemigo = 60;
         int ataqueEnemigo = 10;
         planta.recargar();
+        victoria = false;
 
         Queue<String> turnos = new ArrayDeque<>();
         turnos.offer("jugador");
@@ -130,12 +131,12 @@ public class Combate {
                             continue;
                         }
                         Consola.limpiar();
-                        if (jugador.getVida() >= VIDA_MAXIMA) {
+                        if (jugador.getVida() >= jugador.getVidaMaxima()) {
                             System.out.println("Tu vida ya está al máximo.");
                             continue;
                         }
                         Consola.limpiar();
-                        int curado = planta.usar(jugador, VIDA_MAXIMA);
+                        int curado = planta.usar(jugador, jugador.getVidaMaxima());
                         System.out.println("Recuperaste " + curado + " de vida.");
                         break;
 
@@ -152,7 +153,12 @@ public class Combate {
             turnos.poll();
             turnos.offer(turnoActual);
 
-        } victoria = true;
+        }  
+        if (vidaEnemigo <= 0) {
+            victoria = true;
+            jugador.agregarMonedas(recompensa);
+            System.out.println("Derrotaste al enemigo y obtienes " + recompensa + " monedas.");
+        }
     }
 
 }
