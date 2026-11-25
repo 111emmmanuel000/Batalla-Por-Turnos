@@ -6,8 +6,8 @@ public class Mejora {
 
         void aplicar(Personaje p) {
             switch (this) {
-                case VIDA -> p.setVida(p.getVida() + 1);
-                case DAÑO -> p.setAtaque(p.getAtaque() + 1);
+                case VIDA -> p.aumentarVidaMaxima(10);
+                case DAÑO -> p.setAtaque(p.getAtaque() + 10);
             }
         }
     }
