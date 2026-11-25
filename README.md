@@ -15,20 +15,72 @@ El proyecto tiene como objetivo aplicar conceptos de programación orientada a o
 Caracteristicas principales:
 
 Exploración: Navegación entre diferentes salas mediante un mapa estructurado.
+
 Combate por turnos: enfrentamiento donde el jugador y el enemigo alternan sus acciones.
 
-# Dónde se usan las estructuras de datos
+Selección del personaje: Personalización del nombre y elección del elemento principal.
 
-Pila (stack): en la planta medicinal (PlantaMedicinal.java). Se implementa con un ArrayDeque usado como pila: al empezar cada combate se hacen dos push, y cada curación hace un pop. Por eso tiene exactamente dos usos por combate.
+Habilidades elementales: ataques especiales asociados al elemento seleccionado.
 
-Cola (queue): en los turnos del combate (Combate.java). La cola alterna entre "jugador" y "enemigo": en cada vuelta se toma el frente con peek(), se quita con poll() y se vuelve a meter al final con offer().
+Ataque básico: alternativa de ataque que no requiere consumo de energia.
 
-Árbol:
+Sistema de energia: recurso necesario para ejecutar habilidades especiales.
 
-Mapa de salas (Arbol.java, NodoA.java): árbol binario donde la Entrada es la raíz. Cada nodo guarda su padre, lo que permite la opción "volver a..." y calcular la profundidad de una sala.
-Mejoras de la tienda (Tienda.java, NodoM.java): cada mejora es un nodo, y solo se puede comprar cuando su padre ya está desbloqueado.
+Sistema de curación: Uso de plantas medicinales para recuperar vida durante los combates.
 
-Lista enlazada: las habilidades del jugador (gestorHabilidades.java y Combate.java). Se cargan desde Habilidades.json en un LinkedList, filtradas por el elemento del jugador.
+Sistema de recompensas: obtención de monedas al derrotar enemigos.
 
-# Cómo correr el juego
-descomprime el archivo y abre el ejecutable
+Tienda de mejoras: adquisición de mejoras de araque y vida.
+
+Historial de partidas: registro de resultados de las partidas.
+
+Exploración: El juego cuenta con un mapa de salas organizado mediante un árbol binario.
+
+El jugador puede desplazarse entre las salas disponibles, explorar diferentes caminos, regresar a salas anteriores y acceder a zonas donde puede encontrarse con enemigos.
+
+Cada sala cuenta con información como su nombre, descripción y estado de presencia de enemigos.
+
+Sistema de combate: El combate funciona mediante turnos alternados entre el jugador y el enemigo.
+
+Durante su turno, el jugador puede:
+1. Ejecutar un ataque básico.
+2. Utilizar una habilidad elemental si dispone de energía suficiente.
+3. Utilizar una planta medicinal para recuperar vida.
+
+Si el jugador no cuenta con la energía necesaria para ejecutar una habilidad, el sistema permite realizar un ataque básico como alternativa.
+
+Al derrotar a un enemigo, el jugador obtiene una recompensa de monedas que puede utilizar posteriormente en la tienda.
+
+Sistema de elementos y habilidades: Al crear su personaje, el jugador puede seleccionar uno de los siguientes elementos:
+1. Fuego.
+2. Agua.
+3. Tierra.
+4. Aire.
+
+Las habilidades se almacenan en un archivo JSON y son cargadas dinámicamente mediante un gestor de habilidades.
+
+El sistema filtra las habilidades disponibles según el elemento principal del personaje, permitiendo que cada jugador tenga acceso a ataques asociados a su selección elemental.
+
+Sistema de curación: Durante los combates, el jugador puede utilizar plantas medicinales para recuperar puntos de vida.
+El sistema cuenta con las siguientes características:
+1. Dos usos de curación por combate.
+2. Cada planta recupera hasta 20 puntos de vida.
+3. La curación no supera la vida máxima del personaje.
+4. Los usos se recargan al iniciar un nuevo combate.
+5. La curación se gestiona mediante una estructura de pila.
+
+Sistema económico: El jugador comienza su aventura con monedas que puede utilizar para comprar mejoras.
+Al derrotar a un enemigo, obtiene una recompensa de 5 monedas.
+Las monedas permiten acceder a mejoras que aumentan las características del personaje, haciendo posible fortalecerlo progresivamente durante la exploración.
+
+Sistema de tienda: La tienda utiliza una estructura de árbol para organizar las mejoras disponibles.
+
+El sistema permite:
+1. Comprar mejoras utilizando monedas.
+2. Aumentar el ataque del personaje.
+3. Aumentar la vida máxima.
+4. Desbloquear mejoras progresivamente.
+5. Evitar la compra de mejoras ya adquiridas.
+6. Consultar las mejoras disponibles, bloqueadas y compradas.
+
+Las mejoras se organizan en diferentes ramas, permitiendo una progresión dentro del sistema de compra.
