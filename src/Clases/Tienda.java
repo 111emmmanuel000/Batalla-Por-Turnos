@@ -1,6 +1,11 @@
 package Clases;
-
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 public class Tienda {
+
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
     final NodoM raiz = new NodoM(null);
 
     Tienda() {
@@ -58,5 +63,82 @@ public class Tienda {
         System.out.println("    ".repeat(nivel) + texto);
         mostrar(nodo.izq, nivel + 1);
         mostrar(nodo.der, nivel + 1);
+
+    }
+
+    void abrir(Jugador jugador)throws IOException {
+        NodoM actual = raiz;
+        while (true) {
+            System.out.println("----------T I E N D A----------");
+            System.out.println("Monedas: " + jugador.getMonedas());
+
+            if (actual == raiz) {
+                System.out.println("\nElige una rama de mejoras: \n");
+            } else {
+                System.out.println("Estas en " + actual.mejora.nombre);
+
+                if (actual.izq == null && actual.der == null) {
+                    System.out.println("Completaste esta rama");
+                }
+            }
+            if (actual.izq != null) {
+                System.out.println("1. ");
+                mostrar(actual.izq, 0);
+            }
+            if (actual.der != null) {
+                System.out.println("2. ");
+                mostrar(actual.der, 0);
+            }
+
+            if (actual != raiz) {
+                System.out.println("3. volver al inicio de la tienda");
+            }
+            System.out.println("\n0. salir de la tienda");
+            System.out.println("Elige una opcion: ");
+
+            String op = br.readLine();
+
+            if (op == null) return;
+            NodoM siguiente;
+
+            switch (op.trim()) {
+                case "1":
+                    if (actual.izq == null) {
+                        System.out.println("Opcion 1 invalida, aqui no hay mejoras");
+                        continue;
+                    }
+                    siguiente = actual.izq;
+                    break;
+
+                case "2":
+                    if (actual.der == null) {
+                        System.out.println("Opcion 2 invalida, aqui no hay mejoras");
+                        continue;
+                    }
+                    siguiente = actual.der;
+                    break;
+
+                case "3":
+                    actual = raiz;
+                    System.out.println("Estás en el inicio de la tienda.");
+                    continue;
+
+                case "0":
+                    return;
+
+                default:
+                    System.out.println("Opción inválida. Elige uno de los números del menú.");
+                    continue;
+            }
+
+            if (!siguiente.comprada) {
+                System.out.println(comprar(siguiente, jugador));
+            }
+
+            if (siguiente.comprada) {
+                actual = siguiente;
+            }
+        }
+
     }
 }

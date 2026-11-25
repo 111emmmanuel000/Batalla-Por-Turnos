@@ -69,7 +69,8 @@ public class Juego {
             do{
 
                 System.out.println("Vida:" +fondoRojo+"        "+ jugador.getVida()+"        "+ reset);
-                System.out.println("Ataque: +" + jugador.getAtaque());
+                System.out.println("Ataque: " + jugador.getAtaque());
+                System.out.println("Monedas: " + jugador.getMonedas());
 
 
                 if(izquierda != null)  System.out.println("\n1. ir hacia  " + izquierda.getDato().getNombre());
@@ -104,7 +105,7 @@ public class Juego {
                         siguiente = salaActual.getPadre();
                         break;
                     case "4":
-                        tienda.mostrar();
+                        tienda.abrir(jugador);
                         break;
                     case "0":
                         historial.registrarPartida(jugador, "Abandonada");
