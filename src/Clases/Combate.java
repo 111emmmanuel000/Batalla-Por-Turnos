@@ -76,7 +76,6 @@ public class Combate {
                 System.out.println("---------------------------------");
                 System.out.println("\nTu turno");
                 System.out.println("1. Atacar");
-                System.out.println("2. huir");
                 if (planta.tieneUsos()) {
                     System.out.println("3. Usar planta medicinal (quedan " + planta.usosRestantes() + ")");
                 }
