@@ -84,11 +84,11 @@ public class Tienda {
                 }
             }
             if (actual.izq != null) {
-                System.out.println("1. ");
+                System.out.println("1. Comprar:");
                 mostrar(actual.izq, 0);
             }
             if (actual.der != null) {
-                System.out.println("2. ");
+                System.out.println("2. Comprar:");
                 mostrar(actual.der, 0);
             }
 

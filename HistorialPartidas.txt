@@ -7,3 +7,4 @@
 24/11/2026 22:33 | Jugador: asdfas | Elemento: FUEGO | Resultado: Abandonada | Vida restante: 102
 24/11/2026 22:35 | Jugador: asdf | Elemento: FUEGO | Resultado: Derrota | Vida restante: 0
 24/11/2026 23:12 | Jugador: asdf | Elemento: AGUA | Resultado: Abandonada | Vida restante: 100
+25/11/2026 17:17 | Jugador: asdf | Elemento: AGUA | Resultado: Abandonada | Vida restante: 70
