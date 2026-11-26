@@ -114,4 +114,6 @@ Instalación y ejecución:
 3. Ejecutar BatallaPorTurnos.exe
 
 
+link de descarga:
+
 https://drive.google.com/file/d/1-RPiZLd5l0MGAnmDHGQhL7t-kS88-YUi/view?usp=sharing
