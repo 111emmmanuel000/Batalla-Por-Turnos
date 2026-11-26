@@ -31,6 +31,8 @@ public class Juego {
                     break;
                 case "2":
                     historial.mostrarHistorial();
+                    System.out.println("\nPulsa Enter para volver al menú...");
+                    br.readLine();
                     break;
                 case "0":
                     break;
