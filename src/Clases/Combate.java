@@ -145,7 +145,7 @@ public class Combate {
                         continue;
                 }
             }else{
-                int vidaJugador = jugador.getVida() - ataqueEnemigo;
+                int vidaJugador = Math.max(0,jugador.getVida() - ataqueEnemigo);
                 jugador.setVida(vidaJugador);
                 System.out.println("El enemigo ataco, tu vida: " + vidaJugador);
             }
@@ -160,6 +160,7 @@ public class Combate {
             jugador.recuperarEnergia(30);
             System.out.println("Derrotaste al enemigo y obtienes " + monedasEnemigo + " monedas.");
         }
+
     }
 
 }
