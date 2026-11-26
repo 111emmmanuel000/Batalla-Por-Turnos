@@ -112,3 +112,6 @@ Instalación y ejecución:
 1. Descargar el archivo comprimido del juego.
 2. Extraer todo su contenido en carpeta.
 3. Ejecutar BatallaPorTurnos.exe
+
+
+https://drive.google.com/file/d/1-RPiZLd5l0MGAnmDHGQhL7t-kS88-YUi/view?usp=sharing
