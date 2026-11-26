@@ -130,14 +130,16 @@ public class Juego {
                     return;
                 }
 
-                if(combate.victoria){
+                if (combate.victoria) {
                     destino.enemigoDerrotado();
-                    if(siguiente.getIzquierda() == null && siguiente.getDerecha() == null){
-                        System.out.println("\n\033[32m=== V I C T O R I A ===\033[0m");
-                        System.out.println("Has derrotado al guardian de " + destino.getNombre() + ".");
-                        System.out.println("Pulsa Enter para continuar...");
-                        br.readLine();
+                    System.out.println("\n" + verde + "=== V I C T O R I A ===" + reset);
+
+                    if (siguiente.getIzquierda() == null && siguiente.getDerecha() == null) {
+                        System.out.println("Has derrotado al guardián de " + destino.getNombre() + ".");
                     }
+
+                    System.out.println("Pulsa Enter para continuar...");
+                    br.readLine();
                 }
             }
 
